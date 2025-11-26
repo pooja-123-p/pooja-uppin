@@ -1,0 +1,19 @@
+def Create_adj_matrix(vertices, edges):
+    adj_matrix = [[0] * vertices for _ in range(vertices)]
+    for (u, v) in edges:
+        adj_matrix[u][v] = 1
+        adj_matrix[v][u] = 1
+    return adj_matrix
+
+if __name__ == "__main__":
+    n = int(input("enter no.of vertices: "))
+    e = int(input("enter no.of edges: "))
+    edges = []
+    print("\n enter the edges:")
+    for _ in range(e):
+        u, v = map(int, input().split())
+        edges.append((u, v))
+    adj = Create_adj_matrix(n, edges)
+    print("adjency matrix:")
+    for row in adj:
+        print(" ".join(map(str, row)))
